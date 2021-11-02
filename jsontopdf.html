@@ -22,7 +22,7 @@
      // var person = { fname: "Nick", lname: "Jonas", age: 26 };
 for (var x in message) {
     console.log(x + ": " + message[x])
-    document.getElementById('name').innerHTML+=message[x];
+    document.getElementById('name').innerHTML+=message[x] +"<br>";
 }
     });
 
@@ -31,7 +31,7 @@ for (var x in message) {
 	<body>
 		<button onclick="generatePDF()">Download as PDF</button>
 		<div id="invoice">
-            <h1>Our Invoice</h1>
+            <h1>Our Bio</h1>
             <h2 id="name">Yatharth</h2>
 		</div>
 	</body>
