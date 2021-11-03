@@ -18,13 +18,9 @@
 
             // when we get a message from the app, display it on the page
     ThunkableWebviewerExtension.receiveMessage(function(messagesfromApp) {
-     // document.getElementById('name').innerHTML = message;
+      document.getElementById('name').innerHTML = messagesfromApp;
      // var person = { fname: "Nick", lname: "Jonas", age: 26 };
 	    var message=messagesfromApp;
-for (var x in message) {
-    console.log(x + ": " + message[x])
-	document.getElementById('name').innerHTML+=" &nbsp; &nbsp;  " +x + ": " +message[x] +"<br>";
-}
     });
 
 		</script>
@@ -32,7 +28,7 @@ for (var x in message) {
 	<body>
 		<button onclick="generatePDF()">Download as PDF</button>
 		<div id="invoice">
-            <h1>Your BioData</h1>
+            <h1>Its Your BioData</h1>
             <h2 id="name"></h2>
 		</div>
 	</body>
