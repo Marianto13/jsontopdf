@@ -13,18 +13,28 @@
 				// Choose the element that our invoice is rendered in.
 				const element = document.getElementById('invoice');
 				// Choose the element and save the PDF for our user.
-				html2pdf().from(element).save();
-			}
-
-            // when we get a message from the app, display it on the page
-    ThunkableWebviewerExtension.receiveMessage(function(message) {
-     message.forEach(obj => {
+				message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}];
+				message.forEach(obj => {
         Object.entries(obj).forEach(([key, value]) => {
            
 			document.getElementById('name').innerHTML+="&nbsp; &nbsp;  " +`${key}`  + ": " +`${value}` +"<br>";
         });
       
     });
+
+               // html2pdf().from(element).save();
+
+			}
+
+            // when we get a message from the app, display it on the page
+    ThunkableWebviewerExtension.receiveMessage(function(message) {
+     // document.getElementById('name').innerHTML = message;
+     // var person = { fname: "Nick", lname: "Jonas", age: 26 };
+message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}]
+for (var x in message) {
+    console.log(x + ": " + message[x])
+    document.getElementById('name').innerHTML+=message[x] +"<br>";
+}
     });
 
 		</script>
@@ -32,7 +42,7 @@
 	<body>
 		<button onclick="generatePDF()">Download as PDF</button>
 		<div id="invoice">
-            <h1>Its Your BioData</h1>
+            <h1>Our Bio</h1>
             <h2 id="name"></h2>
 		</div>
 	</body>
