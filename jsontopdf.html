@@ -13,15 +13,7 @@
 				// Choose the element that our invoice is rendered in.
 				const element = document.getElementById('invoice');
 				// Choose the element and save the PDF for our user.
-				message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}];
-				message.forEach(obj => {
-        Object.entries(obj).forEach(([key, value]) => {
-           
-			document.getElementById('name').innerHTML+="&nbsp; &nbsp;  " +`${key}`  + ": " +`${value}` +"<br>";
-        });
-      
-    });
-
+				
                // html2pdf().from(element).save();
 
 			}
@@ -30,11 +22,16 @@
     ThunkableWebviewerExtension.receiveMessage(function(message) {
      // document.getElementById('name').innerHTML = message;
      // var person = { fname: "Nick", lname: "Jonas", age: 26 };
-message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}]
-for (var x in message) {
-    console.log(x + ": " + message[x])
-    document.getElementById('name').innerHTML+=message[x] +"<br>";
-}
+//message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}]
+//message =[{"Name":"hello "},{"Age":"34"},{"Profession":" IT"}];
+				message.forEach(obj => {
+        Object.entries(obj).forEach(([key, value]) => {
+           
+			document.getElementById('name').innerHTML+="&nbsp; &nbsp;  " +`${key}`  + ": " +`${value}` +"<br>";
+        });
+      
+    });
+
     });
 
 		</script>
