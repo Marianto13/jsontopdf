@@ -24,6 +24,8 @@
 
 		// when we get a message from the app, display it on the page
 		ThunkableWebviewerExtension.receiveMessage(function (message) {
+			console.log(message)
+			message= JSON.parse(message); 
 			message.forEach(obj => {
 				Object.entries(obj).forEach(([key, value]) => {
 
@@ -40,7 +42,7 @@
 <body>
 	<button onclick="generatePDF()">Download as PDF</button>
 	<div id="invoice">
-		<h1>Your Bio</h1>
+		<h1>Your BioData</h1>
 		<h2 id="name"></h2>
 	</div>
 </body>
