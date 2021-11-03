@@ -17,10 +17,14 @@
 			}
 
             // when we get a message from the app, display it on the page
-    ThunkableWebviewerExtension.receiveMessage(function(messagesfromApp) {
-      document.getElementById('name').innerHTML = messagesfromApp;
-     // var person = { fname: "Nick", lname: "Jonas", age: 26 };
-	    var message=messagesfromApp;
+    ThunkableWebviewerExtension.receiveMessage(function(message) {
+     message.forEach(obj => {
+        Object.entries(obj).forEach(([key, value]) => {
+           
+			document.getElementById('name').innerHTML+="&nbsp; &nbsp;  " +`${key}`  + ": " +`${value}` +"<br>";
+        });
+      
+    });
     });
 
 		</script>
