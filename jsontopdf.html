@@ -18,19 +18,24 @@
 			const element = document.getElementById('invoice');
 			// Choose the element and save the PDF for our user.
 
-			 html2pdf().from(element).save();
+			html2pdf().from(element).save();
 
 		}
 
 		// when we get a message from the app, display it on the page
 		ThunkableWebviewerExtension.receiveMessage(function (message) {
-			//console.log(message)
-			message= JSON.parse(message); 
+			console.log(message)
+			message = JSON.parse(message);
 			message.forEach(obj => {
 				Object.entries(obj).forEach(([key, value]) => {
+					if (key === "Photo") {
+						document.getElementById('photo').src = `${value}`
+					} else {
+						document.getElementById('name').innerHTML += "&nbsp; &nbsp;  " + `${key}` +
+							": " +
+							`${value}` + "<br>";
+					}
 
-					document.getElementById('name').innerHTML += "&nbsp; &nbsp;  " + `${key}` + ": " +
-						`${value}` + "<br>";
 				});
 
 			});
@@ -43,6 +48,7 @@
 	<button onclick="generatePDF()">Download as PDF</button>
 	<div id="invoice">
 		<h1>&nbsp;Your Bio Data</h1>
+		<img id="photo" width="50px" height="50px" />
 		<h2 id="name"></h2>
 	</div>
 </body>
