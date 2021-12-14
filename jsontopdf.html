@@ -24,7 +24,7 @@
 
 		// when we get a message from the app, display it on the page
 		ThunkableWebviewerExtension.receiveMessage(function (message) {
-			//console.log(message)
+			console.log(message)
 			message= JSON.parse(message); 
 			message.forEach(obj => {
 				Object.entries(obj).forEach(([key, value]) => {
